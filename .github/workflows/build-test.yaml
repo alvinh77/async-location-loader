@@ -1,0 +1,39 @@
+name: Tests & Lint
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  swift-lint:
+    name: 'Swift Lint'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Swift lint check
+        uses: norio-nomura/action-swiftlint@3.2.1
+        with:
+          args: --strict
+
+  unit-tests:
+    name: 'Unit Tests'
+    runs-on: macos-12
+    steps:
+    - uses: actions/checkout@v4
+    - name: Switch to Xcode 13.1
+      run: sudo xcode-select --switch /Applications/Xcode_13.1.app
+    - name: Run unit tests
+      run: |
+        xcodebuild test -scheme AsyncLocationLoader -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 12 Pro' -enableCodeCoverage YES -derivedDataPath .DerivedData/ clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        pathCoverage=.DerivedData/Build/ProfileData/*/Coverage.profdata
+        output=.DerivedData/Build/Products/Debug-iphonesimulator/AsyncLocationLoader.o
+        xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage $output > info.lcov
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        slug: alvinh77/async-location-loader

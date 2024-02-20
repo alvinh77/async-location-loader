@@ -1,12 +1,17 @@
-import XCTest
+//
+//  AsyncLocationLoaderTests.swift
+//  AsyncLocationLoader
+//
+//  Created by Alvin He on 20/2/2024.
+//
+
 @testable import AsyncLocationLoader
 
-final class async_location_loaderTests: XCTestCase {
-    func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
+import XCTest
 
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
+final class AsyncLocationLoaderTests: XCTestCase {
+    func testExample() throws {
+        _ = AsyncLocationLoader()
+        XCTAssertTrue(true)
     }
 }
