@@ -19,14 +19,14 @@ jobs:
 
   unit-tests:
     name: 'Unit Tests'
-    runs-on: macos-13
+    runs-on: macos-15
     steps:
     - uses: actions/checkout@v4
-    - name: Switch to xcode 15.2
-      run: sudo xcode-select --switch /Applications/Xcode_15.2.app
+    - name: Switch to xcode 16.0
+      run: sudo xcode-select --switch /Applications/Xcode_16.0.app
     - name: Run unit tests
       run: |
-        xcodebuild test -scheme AsyncLocationLoader -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' -enableCodeCoverage YES -derivedDataPath .DerivedData/ clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        xcodebuild test -scheme AsyncLocationLoader -destination 'platform=iOS Simulator,OS=18.1,name=iPhone 16 Pro' -enableCodeCoverage YES -derivedDataPath .DerivedData/ clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
         pathCoverage=.DerivedData/Build/ProfileData/*/Coverage.profdata
         output=.DerivedData/Build/Products/Debug-iphonesimulator/AsyncLocationLoader.o
         xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage $output > info.lcov
