@@ -5,7 +5,7 @@
 //  Created by Alvin He on 20/2/2024.
 //
 
-public enum AuthorizationStatus {
+public enum AuthorizationStatus: Sendable {
     case notDetermined
     case restricted
     case denied
@@ -14,17 +14,17 @@ public enum AuthorizationStatus {
     case unknown
 }
 
-public enum AuthorizationType {
+public enum AuthorizationType: Sendable {
     case whenInUse
     case always
 }
 
-public protocol AsyncLocationLoading {
+public protocol AsyncLocationLoading: Actor {
     var authorizationStatus: AuthorizationStatus { get }
-    func requestAuthorization(for type: AuthorizationType) async -> AuthorizationStatus
+    func requestAuthorization(for type: AuthorizationType) -> AuthorizationStatus
 }
 
-public struct AsyncLocationLoader: AsyncLocationLoading {
+public actor AsyncLocationLoader: AsyncLocationLoading {
     private let locationManager: LocationManaging
 
     public init(locationManager: LocationManaging) {
@@ -48,7 +48,7 @@ public struct AsyncLocationLoader: AsyncLocationLoading {
         }
     }
 
-    public func requestAuthorization(for type: AuthorizationType) async -> AuthorizationStatus {
+    public func requestAuthorization(for type: AuthorizationType) -> AuthorizationStatus {
         switch type {
         case .whenInUse:
             locationManager.requestWhenInUseAuthorization()
