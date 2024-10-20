@@ -9,6 +9,7 @@ import CoreLocation
 
 public protocol LocationManaging {
     var authorizationStatus: CLAuthorizationStatus { get }
+    var delegate: CLLocationManagerDelegate? { get set }
     func requestWhenInUseAuthorization()
     func requestAlwaysAuthorization()
 }

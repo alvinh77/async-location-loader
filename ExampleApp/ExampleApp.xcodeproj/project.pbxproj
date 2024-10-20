@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EF56B75B2CC4816B00F04D32 /* AsyncLocationLoader in Frameworks */ = {isa = PBXBuildFile; productRef = EF56B75A2CC4816B00F04D32 /* AsyncLocationLoader */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		EF29A9E32CC47ED800057D78 /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF56B75B2CC4816B00F04D32 /* AsyncLocationLoader in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = ExampleApp;
 			packageProductDependencies = (
+				EF56B75A2CC4816B00F04D32 /* AsyncLocationLoader */,
 			);
 			productName = ExampleApp;
 			productReference = EF29A9E32CC47ED800057D78 /* ExampleApp.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = EF29A9DA2CC47ED800057D78;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EF56B7592CC4816B00F04D32 /* XCLocalSwiftPackageReference "../../async-location-loader" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EF29A9E42CC47ED800057D78 /* Products */;
 			projectDirPath = "";
@@ -250,6 +259,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ExampleApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "When/Always In Use";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "When In Use";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -288,6 +299,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ExampleApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "When/Always In Use";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "When In Use";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -337,6 +350,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		EF56B7592CC4816B00F04D32 /* XCLocalSwiftPackageReference "../../async-location-loader" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../async-location-loader";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF56B75A2CC4816B00F04D32 /* AsyncLocationLoader */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AsyncLocationLoader;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF29A9DB2CC47ED800057D78 /* Project object */;
 }
